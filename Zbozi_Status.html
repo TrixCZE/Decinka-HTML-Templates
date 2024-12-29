@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dochází zboží na Decince</title>
+    <style>
+        body {
+            font-family: Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            margin: 0;
+            padding: 0;
+            background-color: #aaaaaa00;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            overflow: hidden;
+           
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .logo-container {
+            background-color: #ae0000;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 
+                        0 1px 3px rgba(0, 0, 0, 0.08);
+            margin-bottom: 20px;
+        }
+        .logo {
+            text-align: center;
+            margin: 0;
+        }
+        .logo img {
+            max-width: 100px;
+            max-height: 80px;
+            height: auto;
+        }
+        .content {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 5px 4px 8px -1px rgba(89, 89, 89, 0.5), 
+                        0 1px 3px rgba(89, 89, 89, 0.5);
+            margin: 25px 0;
+        }
+        h2 {
+            margin-bottom: 5px;
+        }
+        .gen_time {
+            text-align: center;
+            margin-top: -10px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 20px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
+                        0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+        th {
+            background-color: #f8f9fa;
+            padding: 15px;
+            text-align: left;
+            border-bottom: 2px solid #dee2e6;
+        }
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #dee2e6;
+            background-color: #ffffff;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        .box_img{
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+        h2 {
+            text-align: center;
+            font-size: 28px;
+        }
+        .status-img {
+            width: 24px;
+            height: 24px;
+            display: block;
+            margin: 0 auto;
+        }
+        .col-zbozi {
+            width: 65%;
+        }
+        .col-stav {
+            width: 35%;
+        }
+        .col-status {
+            width: 5%;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 25px;
+            color: #ffffff;
+            font-size: 14px;
+            padding: 20px;
+            background-color: #ae0000;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 
+                        0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+        @media only screen and (max-width: 600px) {
+            .container {
+                width: 100% !important;
+                padding: 10px !important;
+            }
+            .content, .footer, .logo-container {
+                margin: 10px;
+                padding: 15px;
+            }
+            .status-img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <div class="logo">
+                <!-- Replace src with your CDN logo URL -->
+                <img src="https://www.vinarna-decinka.cz/wp-content/uploads/2021/02/cropped-cropped-cropped-Vino3-PNG.png" alt="Vinarna Decinka Logo">
+            </div>
+        </div>
+        
+        <div class="content">
+            <img class="box_img" src="https://img.icons8.com/3d-fluency/94/package.png">
+            <h2>Na Decince dochází/došlo toto zboží!</h2>
+            <p class="gen_time">Vygenerováno v <strong th:text="${gen_time}">2024-12-29 13:00:27.87</strong></p>
+            
+            <p>Toto zboží dochází nebo již došlo:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Zboží</th>
+                        <th>Stav</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="item : ${items}">
+                        <td class="col-status">
+                            <img 
+                                th:src="${item.statusImage}" 
+                                th:alt="${item.status}"
+                                class="status-img"
+                                src="https://img.icons8.com/fluency/48/info.png" 
+                                alt="Status"
+                            >
+                        </td>
+                        <td class="col-zbozi" th:text="${item.name}">Nazev zbozi</td>
+                        <td class="col-stav" th:text="${item.stav}">Dochází</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p>Vygeneroval/a: <strong th:text="${generated_by}">Jakub Štefček</strong></p>
+            <hr>
+        </div>
+        
+        <div class="footer">
+            <p>Pokud bys chtěl změnit podobu e-mailu, tak mi napiš a podíval bych se na to</p>
+            <p>© 2024 Vinárna Decinka</p>
+        </div>
+    </div>
+</body>
+</html>
