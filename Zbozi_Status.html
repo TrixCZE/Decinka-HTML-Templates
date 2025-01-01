@@ -123,11 +123,14 @@
             background-color: #fef3c7;
             color: #92400e;
         }
+        .status-badge-warning-low {
+            background-color: #e2cf7f;
+            color: #642802;
+        }
         .status-badge-info {
             background-color: #e0f2fe;
             color: #075985;
         }
-
         .footer {
             text-align: center;
             margin-top: 25px;
@@ -193,11 +196,12 @@
                             <span class="status-badge" 
                                 th:text="${item.stav}"
                                 th:classappend="${
-                                    #strings.startsWith(item.stav, 'Došl') ? 'status-badge-error' : 
-                                    #strings.startsWith(item.stav, 'Zbývá') ? 'status-badge-warning' : 
+                                    #strings.startsWith(item.stav, 'Došlo') ? 'status-badge-error' : 
+                                    #strings.startsWith(item.stav, 'Méně než 5 kusů') ? 'status-badge-warning' :
+                                    #strings.startsWith(item.stav, 'Méně než 3 kusů') ? 'status-badge-warning-low' :
                                     'status-badge-info'
                                 }">
-                                Dochází
+                                Došlo
                             </span>
                         </td>
                     </tr>
