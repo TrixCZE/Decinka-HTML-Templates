@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naražená vína na Decince</title>
+    <style>
+        body {
+            font-family: Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            margin: 0;
+            padding: 0;
+            background-color: #aaaaaa00;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            overflow: hidden;
+           
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .logo-container {
+            background-color: #ae0000;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 
+                        0 1px 3px rgba(0, 0, 0, 0.08);
+            margin-bottom: 20px;
+        }
+        .logo {
+            text-align: center;
+            margin: 0;
+        }
+        .logo img {
+            max-width: 100px;
+            max-height: 80px;
+            height: auto;
+        }
+        .content {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 5px 4px 8px -1px rgba(89, 89, 89, 0.5), 
+                        0 1px 3px rgba(89, 89, 89, 0.5);
+            margin: 25px 0;
+        }
+        h2 {
+            margin-bottom: 5px;
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+        }
+        .gen_time {
+            text-align: center;
+            margin-top: -10px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 0 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2),
+                        0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+        th {
+            background-color: #f8f9fa;
+            padding: 15px;
+            text-align: left;
+            font-size: 16px;
+            font-weight: 800;
+            border-bottom: 2px solid #dee2e6;
+        }
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #dee2e6;
+            background-color: #ffffff;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        .box_img{
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            width: 100px;
+            height: 100px;
+        }
+        .vino-img {
+            width: 40px;
+            height: 40px;
+            display: block;
+            margin: 0 auto;
+        }
+        .col-vino-name {
+            width: 55%;
+            font-size: 14px;
+        }
+        .col-dat-naraz {
+            width: 40%;
+        }
+        .col-img {
+            width: 5%;
+        }
+        .vino_text{
+            margin-top: 30px;
+        }
+        .vino-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            background-color: #e0fee1;
+            color: #096a0e;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .vino-badge-error {
+            background-color: #fee2e2;
+            color: #991b1b;
+            font-weight: bold;
+        }
+        .vino-badge-warning {
+            background-color: #fef3c7;
+            color: #92400e;
+        }
+        .vino-badge-info {
+            background-color: #e0fee1;
+            color: #07850d;
+        }
+        .mail_img{
+            width: 40px;
+            height: 40px;
+        }
+        .footer_p1{
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .footer_p2{
+            margin-top: 0px;
+            margin-bottom: 10px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 25px;
+            color: #ffffff;
+            font-size: 14px;
+            padding: 20px;
+            background-color: #ae0000;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 
+                        0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+        @media only screen and (max-width: 600px) {
+            .container {
+                width: 100% !important;
+                padding: 10px !important;
+            }
+            .content, .footer, .logo-container {
+                margin: 10px;
+                padding: 15px;
+            }
+            .col-img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <div class="logo">
+                <img src="https://www.vinarna-decinka.cz/wp-content/uploads/2021/02/cropped-cropped-cropped-Vino3-PNG.png" alt="Vinarna Decinka Logo">
+            </div>
+        </div>
+        
+        <div class="content">
+            <img class="box_img" src="https://img.icons8.com/arcade/64/wine.png">
+            <h2>Datum naražení vín na Decince</h2>
+            <p class="gen_time">Vygenerováno v <strong th:text="${#dates.format(gen_time, 'dd.MM.yyyy HH:mm:ss')}">29.12.2024 13:00:27</strong></p>
+            
+            <p class="vino_text">Zde je přehled vín a jejich datum naražení:</p>
+            <table>
+                <thead>
+                    <tr class="col-header">
+                        <th></th>
+                        <th>VÍNO</th>
+                        <th>DATUM NARAŽENÍ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="item : ${items}">
+                        <td class="col-img">
+                            <img 
+                                th:src="${item.VinoImage}" 
+                                alt="Logo Vína"
+                                class="vino-img"
+                                src="https://www.vinarna-decinka.cz/wp-content/uploads/2025/01/Yellow_Wine.png" 
+                                alt="Barva Vína"
+                            >
+                        </td>
+                        <td class="col-vino-name" th:text="${item.VinoName}">Rulandské modré rosé - Polosuché</td>
+                        <td class="col-dat-naraz">
+                            <span class="vino-badge" 
+                                th:text="${#dates.format(item.Vino_DatNaraz, 'dd.MM.yyyy HH:mm:ss')}"
+                                th:classappend="${
+                                    item.vinoDatNaraz.time < T(java.lang.System).currentTimeMillis() - 7 * 24 * 60 * 60 * 1000 ? 'vino-badge-error' : 
+                                    item.vinoDatNaraz.time < T(java.lang.System).currentTimeMillis() - 3 * 24 * 60 * 60 * 1000 ? 'vino-badge-warning' :
+                                    'vino-badge-info'
+                                }">
+                                30.12.2024 15:30:13
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="footer">
+            <p class="footer_p1">Pokud bys chtěl změnit podobu e-mailu, tak mi napiš a podíval bych se na to</p>
+            <a href="mailto:jakub.stefcek@hotmail.cz?subject=Prosím o změnu - Naražená vína na Decince">
+                <img class="mail_img" 
+                     src="https://img.icons8.com/material-outlined/96/FFFFFF/mail.png"
+                     alt="Pošli email">
+            </a>
+            <p class="footer_p2">© 2025 Vinárna Decinka</p>
+        </div>
+    </div>
+</body>
+</html>
