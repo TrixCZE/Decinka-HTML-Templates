@@ -14,7 +14,7 @@
             background-color: #aaaaaa00;
         }
         .container {
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 20px;
             background-color: #ffffff;
@@ -101,11 +101,11 @@
             margin: 0 auto;
         }
         .col-vino-name {
-            width: 55%;
+            width: 50%;
             font-size: 14px;
         }
         .col-dat-naraz {
-            width: 40%;
+            width: 45%;
         }
         .col-img {
             width: 5%;
@@ -134,6 +134,21 @@
         .vino-badge-info {
             background-color: #e0fee1;
             color: #07850d;
+        }
+        .gen_message{
+            margin-top: 30px;
+            margin-bottom: 0px;
+        }
+        .span_gen_message{
+            display: inline-block;
+            padding: 4px 8px;
+            background-color: #e0f2fe;
+            color: #075985;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2),
+                        0 1px 3px rgba(0, 0, 0, 0.08);
         }
         .mail_img{
             width: 40px;
@@ -167,9 +182,14 @@
                 margin: 10px;
                 padding: 15px;
             }
-            .col-img {
-                width: 20px;
-                height: 20px;
+            .col-img, .col_head_img {
+                display: none;
+            }
+            .col-dat-naraz, .col-vino-name{
+                font-size: 12px;
+            }
+            .col-header{
+                font-size: 14px;
             }
         }
     </style>
@@ -191,9 +211,9 @@
             <table>
                 <thead>
                     <tr class="col-header">
-                        <th></th>
+                        <th class="col_head_img"></th>
                         <th>VÍNO</th>
-                        <th>DATUM NARAŽENÍ</th>
+                        <th>NARAŽENO</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -217,6 +237,13 @@
                     </tr>
                 </tbody>
             </table>
+
+            <p class="gen_message">
+                <span   class="span_gen_message" 
+                        th:text="${generated_by}">
+                    Automaticky vygenerovano systémem
+                </span>
+            </p>
         </div>
         
         <div class="footer">
@@ -226,7 +253,7 @@
                      src="https://img.icons8.com/material-outlined/96/FFFFFF/mail.png"
                      alt="Pošli email">
             </a>
-            <p class="footer_p2" th:text="© ${#dates.format(#dates.createNow(), 'yyyy')} Vinárna Decinka">© 2025 Vinárna Decinka</p>
+            <p class="footer_p2" th:text="'© ' + ${#dates.format(#dates.createNow(), 'yyyy')} + ' Vinárna Decinka'">© 2025 Vinárna Decinka</p>
         </div>
     </div>
 </body>
