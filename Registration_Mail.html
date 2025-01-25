@@ -56,7 +56,7 @@
             text-align: center;
             margin-top: 40px;
             margin-bottom: 0px;
-            font-size: 14px;
+            font-size: 16px;
         }
         table {
             width: 100%;
@@ -67,6 +67,19 @@
             overflow: hidden;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
                         0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+        .login_data_div {
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2),
+                        0 1px 3px rgba(0, 0, 0, 0.1);
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 0px 0;
+            padding-top: 1px;
+            padding-bottom: 1px;
+            padding-left: 20px;
+            border-left: 10px solid;
+            border-left-color: darkred;
         }
         th {
             background-color: #f8f9fa;
@@ -91,47 +104,6 @@
             text-align: center;
             font-size: 28px;
         }
-        .status-img {
-            width: 24px;
-            height: 24px;
-            display: block;
-            margin: 0 auto;
-        }
-        .col-zbozi {
-            width: 45%;
-        }
-        .col-stav {
-            width: 50%;
-        }
-        .col-status {
-            width: 5%;
-        }
-        .status-badge {
-            display: inline-block;
-            padding: 4px 8px;
-            background-color: #e0f2fe;
-            color: #075985;
-            border-radius: 4px;
-            font-size: 14px;
-            font-weight: 500;
-        }
-        .status-badge-error {
-            background-color: #fee2e2;
-            color: #991b1b;
-            font-weight: bold;
-        }
-        .status-badge-warning {
-            background-color: #fef3c7;
-            color: #92400e;
-        }
-        .status-badge-warning-low {
-            background-color: #f3d3bf;
-            color: #642802;
-        }
-        .status-badge-info {
-            background-color: #e0f2fe;
-            color: #075985;
-        }
         .mail_img, .fb_img, .ig_img{
             width: 40px;
             height: 40px;
@@ -147,6 +119,8 @@
         }
         .login_data_header{
             margin-top: 40px;
+            margin-bottom: 10px;
+            font-size: 24px;           
         }
         .icon_column{
             width: 100%;
@@ -154,6 +128,17 @@
             align-self: center;
             outline: none;
             text-decoration: none;
+        }
+        .data_header {
+            font-weight: bold;
+            margin-bottom: 0px;
+            color: black;
+            text-transform: uppercase;
+            font-size: 20px;
+        }
+        .data_value {
+            margin-top: 0px;
+            font-size: 16px;
         }
         .icon_column a {
             outline: none;
@@ -167,8 +152,8 @@
             padding: 20px;
             background-color: #ae0000;
             border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 
-                        0 1px 3px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 
+                        0 1px 3px rgba(0, 0, 0, 0.1);
         }
         @media only screen and (max-width: 600px) {
             .container {
@@ -206,42 +191,23 @@
             </p>
             
             
-            <h3 class="login_data_header">Toto jsou tvé přihlašovací údaje</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>ZBOŽÍ</th>
-                        <th>STAV</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="item : ${items}">
-                        <td class="col-status">
-                            <img 
-                                th:src="${item.statusImage}" 
-                                th:alt="${item.status}"
-                                class="status-img"
-                                src="https://img.icons8.com/fluency/48/info.png" 
-                                alt="Status"
-                            >
-                        </td>
-                        <td class="col-zbozi" th:text="${item.name}">Nazev zbozi</td>
-                        <td>
-                            <span class="status-badge" 
-                                th:text="${item.stav}"
-                                th:classappend="${
-                                    #strings.startsWith(item.stav, 'Došlo') ? 'status-badge-error' : 
-                                    #strings.startsWith(item.stav, 'Méně než 5 kusů') ? 'status-badge-warning' :
-                                    #strings.startsWith(item.stav, 'Méně než 3 kusů') ? 'status-badge-warning-low' :
-                                    'status-badge-info'
-                                }">
-                                Došlo
-                            </span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <h3 class="login_data_header">
+                Toto jsou tvé přihlašovací údaje
+            </h3>
+
+            <div class="login_data_div">
+                <p class="data_header">Jméno</p>
+                <p class="data_value" th:text="${reg_jmeno}">Jakub</p>
+                
+                <p class="data_header">Přijmení</p>
+                <p class="data_value" th:text="${reg_prijmeni}">Štefček</p>
+                
+                <p class="data_header">Email</p>
+                <p class="data_value" th:text="${reg_email}">jakub.stefcek@hotmail.cz</p>
+                
+                <p class="data_header">Přihlašovací jméno do aplikace</p>
+                <p class="data_value" th:text="${reg_username}">stefcekj</p>
+            </div>
             
             <p class="gen_time">Vygenerováno v <strong th:text="${gen_time}">2024-12-29 13:00:27.87</strong></p>
             <hr>
