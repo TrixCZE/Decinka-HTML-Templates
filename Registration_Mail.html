@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Na Decince došlo ke změně stavu zboží!</title>
+    <title>Úspěšná registrace v aplikaci Decinka!</title>
     <style>
         body {
             font-family: Verdana, sans-serif;
@@ -54,8 +54,8 @@
         }
         .gen_time {
             text-align: center;
-            margin-top: -10px;
-            margin-bottom: 20px;
+            margin-top: 40px;
+            margin-bottom: 0px;
             font-size: 14px;
         }
         table {
@@ -82,7 +82,7 @@
         tr:last-child td {
             border-bottom: none;
         }
-        .box_img{
+        .user_img{
             margin-left: auto;
             margin-right: auto;
             display: block;
@@ -132,14 +132,6 @@
             background-color: #e0f2fe;
             color: #075985;
         }
-        .mail_img{
-            width: 40px;
-            height: 40px;
-        }
-        .icon_column a {
-            outline: none;
-            text-decoration: none;
-        }
         .mail_img, .fb_img, .ig_img{
             width: 40px;
             height: 40px;
@@ -149,6 +141,23 @@
             border-radius: 10px;
             padding: 7px;
             margin-right: 10px;
+        }
+        .init_text{
+            text-align: center;
+        }
+        .login_data_header{
+            margin-top: 40px;
+        }
+        .icon_column{
+            width: 100%;
+            padding: 5px;
+            align-self: center;
+            outline: none;
+            text-decoration: none;
+        }
+        .icon_column a {
+            outline: none;
+            text-decoration: none;
         }
         .footer {
             text-align: center;
@@ -190,11 +199,14 @@
         </div>
         
         <div class="content">
-            <img class="box_img" src="https://img.icons8.com/3d-fluency/94/package.png">
-            <h2>Na Decince došlo ke změně stavu zboží!</h2>
-            <p class="gen_time">Vygenerováno v <strong th:text="${gen_time}">2024-12-29 13:00:27.87</strong></p>
+            <img class="user_img" src="https://img.icons8.com/fluency/96/edit-user-male.png">
+            <h2>Úspěšná registrace v aplikaci Decinka!</h2>
+            <p class="init_text">Povedlo se ti úspěšně se registrovat do aplikace vinárny Decinky!<br>
+                Níže najdeš potřebné informace pro přihlášení do aplikace a svoje přihlašovací údaje. 
+            </p>
             
-            <p>U tohoto zboží došlo ke změně jeho stavu:</p>
+            
+            <h3 class="login_data_header">Toto jsou tvé přihlašovací údaje</h3>
             <table>
                 <thead>
                     <tr>
@@ -231,13 +243,13 @@
                 </tbody>
             </table>
             
-            <p>Vygeneroval/a: <strong th:text="${generated_by}">Jakub Štefček</strong></p>
+            <p class="gen_time">Vygenerováno v <strong th:text="${gen_time}">2024-12-29 13:00:27.87</strong></p>
             <hr>
         </div>
         
         <div class="footer">
-            <p>
-                Pokud bys chtěl upravit podobu emailu, tak mi napiš.
+            <p>Pokud zapomeneš heslo k přihlášení, můžeš použít základní účet brigádníka a kontaktovat mě na Facebooku, Instagramu (Jakub Štefček), kde ti poté vygeneruji nové heslo až budu u PC.
+                Alternativně mi můžeš napsat e-mail – stačí kliknout na ikonu e-mailu a poslat mi zprávu tam.
             </p>
 
             <div class="icon_column">

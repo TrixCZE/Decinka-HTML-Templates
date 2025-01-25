@@ -155,8 +155,22 @@
             margin-bottom: 10px;
         }
         .footer_p2{
-            margin-top: 0px;
+            margin-top: 10px;
             margin-bottom: 10px;
+        }
+        .icon_column a {
+            outline: none;
+            text-decoration: none;
+        }
+        .mail_img, .fb_img, .ig_img{
+            width: 40px;
+            height: 40px;
+            border-color: darkred;
+            border-style: solid;
+            border-width: 3px;
+            border-radius: 10px;
+            padding: 7px;
+            margin-right: 10px;
         }
         .footer {
             text-align: center;
@@ -187,6 +201,10 @@
             }
             .col-header, .span_gen_message{
                 font-size: 14px;
+            }
+            .mail_img, .fb_img, .ig_img{
+            width: 30px;
+            height: 30px;
             }
         }
     </style>
@@ -244,12 +262,30 @@
         </div>
         
         <div class="footer">
-            <p class="footer_p1">Pokud bys chtěl změnit podobu e-mailu, tak mi napiš a podíval bych se na to</p>
-            <a href="mailto:jakub.stefcek@hotmail.cz?subject=Prosím o změnu - Naražená vína na Decince">
-                <img class="mail_img" 
-                     src="https://img.icons8.com/material-outlined/96/FFFFFF/mail.png"
-                     alt="Pošli email">
-            </a>
+            <p>
+                Pokud bys chtěl upravit podobu emailu, tak mi napiš.
+            </p>
+
+            <div class="icon_column">
+                <a href="mailto:jakub.stefcek@hotmail.cz?subject=Prosím o změnu - Na Decince došlo ke změně stavu zboží!">
+                    <img class="mail_img" 
+                         src="https://img.icons8.com/fluency/48/filled-message.png"
+                         alt="Odešli email">
+                </a>
+
+                <a href="https://www.facebook.com/jakub.stefcek/" target="_blank">
+                    <img class="fb_img" 
+                         src="https://img.icons8.com/color/48/facebook-new.png"
+                         alt="Napiš na Facebook">
+                </a>
+
+                <a href="https://www.instagram.com/jakub_stefcek/" target="_blank">
+                    <img class="ig_img" 
+                         src="https://img.icons8.com/fluency/48/instagram-new.png"
+                         alt="Napiš na Instagram">
+                </a>
+            </div>
+            
             <p class="footer_p2" th:text="'© ' + ${#dates.format(#dates.createNow(), 'yyyy')} + ' Vinárna Decinka'">© 2025 Vinárna Decinka</p>
         </div>
     </div>
